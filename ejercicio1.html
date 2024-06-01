@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Par o impar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-r from-cyan-500 to-indigo-500 font-mono">
+    <h1 class="my-5 text-center text-xl text-white">Programa para determinar si un número es par o impar</h1>
+    <div class="w-1/2 h-40 my-10 absolute left-[25%] flex flex-col justify-center items-center rounded bg-white shadow-xl">
+        <label for="num">Escribe el número aquí</label>
+        <input type="text" name="num" id="num" class="w-1/2 px-20 py-3 border-2">
+        <button onclick="determ()" class="bg-cyan-500 text-white px-3 mt-3 rounded">Determinar</button>
+    </div>
+    <p id="result" class="absolute top-80 left-[43%] text-white"></p>
+</body>
+<script src="./ejercicio1.js"></script>
+</html>
