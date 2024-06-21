@@ -1,6 +1,6 @@
 class Maquina {
     constructor() {
-        this.opciones = ['Piedra', 'Papel', 'Tijera'];
+        this.opciones = ['piedra', 'papel', 'tijera'];
         this.victorias = 0;
         this.derrotas = 0;
     }
@@ -13,14 +13,12 @@ class Maquina {
         } else if (ganador !== 'Empate') {
             this.derrotas++;
         }
-        console.log(`Victorias de la Maquina: ${this.victorias}`);
-        console.log(`Derrotas de la Maquina: ${this.derrotas}`);
+        alert(`Victorias de la Maquina: ${this.victorias}\n Derrotas de la Maquina: ${this.derrotas}`);
     }
 }
 class Jugador {
-    constructor(nombre, opcionJ) {
+    constructor(nombre) {
         this.nombre = nombre;
-        this.opcionJ = opcionJ;
         this.victorias = 0;
         this.derrotas = 0;
     }
@@ -30,32 +28,35 @@ class Jugador {
         } else if (ganador !== 'Empate') {
             this.derrotas++;
         }
-        console.log(`Victorias de ${this.nombre}: ${this.victorias}`);
-        console.log(`Derrotas de ${this.nombre}: ${this.derrotas}`);
+        alert(`Victorias de ${this.nombre}: ${this.victorias}\n Derrotas de ${this.nombre}: ${this.derrotas}`);
     }
 }
-
-function opcionJugador() {
-    let opciones = ['Piedra', 'Papel', 'Tijera'];
-    return opciones[Math.floor(Math.random() * 3)];
-}
-let jugador1 = 'Pepe'
-let opcionJ = opcionJugador();
-let jugador = new Jugador(jugador1, opcionJ);
+let nombre = prompt('Ingresa tu nombre');
+let jugador = new Jugador(nombre);
 let maquina = new Maquina;
-let opcionM = maquina.opcion();
 let ganador = ''
-for (let i = 1; i <= 3; i++) {
+while (jugador.victorias < 3 && maquina.victorias < 3) {
+    let opcionM = maquina.opcion();
+    let opcionJ = prompt('Elige una opción: Piedra, Papel o Tijera').toLowerCase();
     if (opcionJ === opcionM) {
         ganador = 'Empate';
-        console.log('Empate');
-    } else if (opcionJ === "Piedra" && opcionM === "Tijera" || opcionJ === "Papel" && opcionM === "Piedra" || opcionJ === "Tijera" && opcionM == "Papel") {
-        ganador = jugador1;
-        console.log(`Gana: ${jugador1}, Maquina jugó: ${opcionM}`);
+        alert('Empate');
+    } else if (
+        opcionJ === "piedra" && opcionM === "tijera" || 
+        opcionJ === "papel" && opcionM === "piedra" || 
+        opcionJ === "tijera" && opcionM == "papel"
+    ) {
+        ganador = nombre;
+        alert(`Gana: ${nombre}, Maquina jugó: ${opcionM}`);
     } else {
         ganador = 'Maquina';
-        console.log(`Gana: Maquina, Maquina jugó: ${opcionM}`);
+        alert(`Gana: Maquina, Maquina jugó: ${opcionM}`);
     }
     maquina.historial(ganador);
     jugador.historial(ganador);
+}
+if (jugador.victorias > maquina.victorias) {
+    alert(`Fin del juego\n Gana: ${nombre}`);
+} else {
+    alert('Fin del juego\n Gana: Maquina');
 }

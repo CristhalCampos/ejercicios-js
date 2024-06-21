@@ -26,17 +26,20 @@ class Dragon {
         this.nombre = nombre;
         this.vida = vida;
         this.poder = poder;
-        this.golpe = Math.random().toFixed(1) * this.poder;
+    }
+    calcularGolpe() {
+        return (Math.random().toFixed(1) * this.poder);
     }
     ataque(rival) {
-        rival.vida -= this.golpe;
-        console.log(`${this.nombre} ataca a ${rival.nombre} y le quita ${this.golpe}`);
+        const golpe = this.calcularGolpe();
+        rival.vida -= golpe;
+        console.log(`${this.nombre} ataca a ${rival.nombre} y le quita ${golpe}`);
         console.log(`Vida de ${this.nombre}: ${this.vida}`);
         console.log(`Vida de ${rival.nombre}: ${rival.vida}`);
     }
     defensa(rival) {
         this.vida += 3;
-        console.log(`${this.nombre} se defiende`);
+        console.log(`${this.nombre} se defiende de ${rival.nombre}`);
         console.log(`Vida de ${this.nombre}: ${this.vida}`);
         console.log(`Vida de ${rival.nombre}: ${rival.vida}`);
     }
@@ -55,8 +58,8 @@ function seleccionar() {
 let turno = turnos[seleccionar()];
 let metodo = '';
 
-while(dragon1.vida > 0 && dragon1.vida > 0){
-    if (turno == 'Bud') {
+while (dragon1.vida > 0 && dragon2.vida > 0) {
+    if (turno == dragon1.nombre) {
         metodo = metodos[seleccionar()]
         if (metodo == 'atacar') {
             dragon1.ataque(dragon2);
@@ -64,6 +67,9 @@ while(dragon1.vida > 0 && dragon1.vida > 0){
             dragon1.defensa(dragon2);
         }
         console.log('---');
+        if (dragon1.vida <= 0 || dragon2.vida <= 0) {
+            break;
+        }
         metodo = metodos[seleccionar()]
         if (metodo == 'atacar') {
             dragon2.ataque(dragon1);
@@ -79,6 +85,9 @@ while(dragon1.vida > 0 && dragon1.vida > 0){
             dragon2.defensa(dragon1);
         }
         console.log('---');
+        if (dragon1.vida <= 0 || dragon2.vida <= 0) {
+            break;
+        }
         metodo = metodos[seleccionar()]
         if (metodo == 'atacar') {
             dragon1.ataque(dragon2);
