@@ -1,4 +1,4 @@
-class Maquina {
+/*class Maquina {
     constructor() {
         this.opciones = ['piedra', 'papel', 'tijera'];
         this.victorias = 0;
@@ -59,4 +59,44 @@ if (jugador.victorias > maquina.victorias) {
     alert(`Fin del juego\n Gana: ${nombre}`);
 } else {
     alert('Fin del juego\n Gana: Maquina');
+}*/
+
+class Juego {
+    constructor() {
+        this.victorias = 0;
+        this.derrotas = 0;
+        this.partidas = [];
+    }
+    jugar() {
+        let opciones = ['piedra', 'papel', 'tijera'];
+        let opcionUsuario = prompt('Elige una opción: piedra, papel o tijera').toLowerCase();
+        let opcionComputadora = opciones[Math.floor(Math.random() * 3)];
+        if(opcionUsuario == opcionComputadora) {
+            alert('Empate');
+            this.partidas.unshift('Empate');
+        } else if(
+            opcionUsuario === "piedra" && opcionComputadora === "tijera" || 
+            opcionUsuario === "papel" && opcionComputadora === "piedra" || 
+            opcionUsuario === "tijera" && opcionComputadora == "papel"
+        ) {
+            alert(`Ganaste, la computadora eligió: ${opcionComputadora}`);
+            this.victorias++;
+            this.partidas.unshift('Ganaste');
+        } else {
+            alert(`Perdiste, la computadora eligió: ${opcionComputadora}`);
+            this.derrotas++;
+            this.partidas.unshift('Perdiste');
+        }
+        alert(`Victorias: ${this.victorias}, Derrotas: ${this.derrotas}`);
+        alert(this.partidas.toString());
+    }
+}
+
+let juego = new Juego();
+while(true) {
+    juego.jugar();
+    let continuar = confirm('Desea jugar de nuevo?');
+    if(!continuar) {
+        break;
+    }
 }

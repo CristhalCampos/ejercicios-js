@@ -20,7 +20,6 @@
   el ataque debe ser debe tener un porcentaje aleatorio de quitar el 100% del ataque
   del personaje que ataca
 */
-
 class Dragon {
     constructor(nombre, vida, poder) {
         this.nombre = nombre;
@@ -31,7 +30,7 @@ class Dragon {
         return (Math.random().toFixed(1) * this.poder);
     }
     ataque(rival) {
-        const golpe = this.calcularGolpe();
+        let golpe = this.calcularGolpe();
         rival.vida -= golpe;
         console.log(`${this.nombre} ataca a ${rival.nombre} y le quita ${golpe}`);
         console.log(`Vida de ${this.nombre}: ${this.vida}`);
@@ -44,60 +43,38 @@ class Dragon {
         console.log(`Vida de ${rival.nombre}: ${rival.vida}`);
     }
 }
-
 let dragon1 = new Dragon('Bud', 100, 10);
 let dragon2 = new Dragon('Rocko', 100, 10);
-
 let turnos = [dragon1.nombre, dragon2.nombre];
 let metodos = ['atacar', 'defender'];
-
 function seleccionar() {
     return Math.floor(Math.random() * 2);
 }
-
 let turno = turnos[seleccionar()];
 let metodo = '';
-
+function orden(dragon1, dragon2) {
+    metodo = metodos[seleccionar()];
+    if (metodo == 'atacar') {
+        dragon1.ataque(dragon2);
+    } else {
+        dragon1.defensa(dragon2);
+    }
+    console.log('---');
+    metodo = metodos[seleccionar()]
+    if (metodo == 'atacar') {
+        dragon2.ataque(dragon1);
+    } else {
+        dragon2.defensa(dragon1);
+    }
+    console.log('---');
+}
 while (dragon1.vida > 0 && dragon2.vida > 0) {
     if (turno == dragon1.nombre) {
-        metodo = metodos[seleccionar()]
-        if (metodo == 'atacar') {
-            dragon1.ataque(dragon2);
-        } else {
-            dragon1.defensa(dragon2);
-        }
-        console.log('---');
-        if (dragon1.vida <= 0 || dragon2.vida <= 0) {
-            break;
-        }
-        metodo = metodos[seleccionar()]
-        if (metodo == 'atacar') {
-            dragon2.ataque(dragon1);
-        } else {
-            dragon2.defensa(dragon1);
-        }
-        console.log('---');
+        orden(dragon1, dragon2);
     } else {
-        metodo = metodos[seleccionar()]
-        if (metodo == 'atacar') {
-            dragon2.ataque(dragon1);
-        } else {
-            dragon2.defensa(dragon1);
-        }
-        console.log('---');
-        if (dragon1.vida <= 0 || dragon2.vida <= 0) {
-            break;
-        }
-        metodo = metodos[seleccionar()]
-        if (metodo == 'atacar') {
-            dragon1.ataque(dragon2);
-        } else {
-            dragon1.defensa(dragon2);
-        }
-        console.log('---');
+        orden(dragon2, dragon1);
     }
 }
-
 if (dragon1.vida > dragon2.vida) {
     console.log(`El ganador es ${dragon1.nombre}`);
 } else {

@@ -1,0 +1,19 @@
+button {
+    width: 28px;
+    border-radius: 4px;
+}
+.operaciones {
+    background-color: rgb(5 150 105);
+}
+.numeros {
+    background-color: rgb(30 41 59);
+}
+#ac {
+    background-color: rgb(185 28 28);
+}
+#c {
+    background-color: rgb(185 28 28);
+}
+#igual {
+    background-color: rgb(100 116 139);
+}
