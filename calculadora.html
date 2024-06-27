@@ -10,30 +10,34 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex justify-center items-center font-mono">
-    <div id="calculadora" class="w-1/4 flex flex-col justify-start items-center bg-blue-950 mt-10 pt-4 pb-2 rounded-lg">
-        <input type="text" id="input" class="w-4/5 mb-4 px-2 font-['VT323'] text-xl">
+<body class="grid grid-cols-[20%_80%] font-mono text-xl">
+    <button onclick="modo()" id="modo" class="flex justify-center items-center m-5 w-10 h-10 rounded-full text-yellow-200 bg-blue-900">☀</button>
+    <div id="calculadora" class="w-1/2 flex flex-col justify-start items-center bg-zinc-900 mt-10 pt-4 pb-2 rounded-lg">
+        <input type="text" disabled id="input" class="w-4/5 mb-4 px-2 font-['VT323'] text-3xl bg-white">
         <div id="botones" class="w-full grid grid-cols-4 justify-items-center content-around bg-blue-900 gap-2 p-2 text-white">
-            <button class="operaciones" id="ac">AC</button>
-            <button class="operaciones" id="c">C</button>
-            <button class="operaciones">√</button>
-            <button class="operaciones">^</button>
-            <button class="numeros">7</button>
-            <button class="numeros">8</button>
-            <button class="numeros">9</button>
-            <button class="operaciones">/</button>
-            <button class="numeros">4</button>
-            <button class="numeros">5</button>
-            <button class="numeros">6</button>
-            <button class="operaciones">*</button>
-            <button class="numeros">1</button>
-            <button class="numeros">2</button>
-            <button class="numeros">3</button>
-            <button class="operaciones">-</button>
-            <button class="numeros">0</button>
-            <button class="numeros">.</button>
-            <button id="igual">=</button>
-            <button class="operaciones">+</button>
+            <button onclick="calcular('AC')">AC</button>
+            <button onclick="calcular('C')">C</button>
+            <div>
+                <button onclick="calcular('(')">(</button>
+                <button onclick="calcular(')')">)</button>
+            </div>
+            <button onclick="calcular('**')">^</button>
+            <button onclick="calcular('7')">7</button>
+            <button onclick="calcular('8')">8</button>
+            <button onclick="calcular('9')">9</button>
+            <button onclick="calcular('/')">/</button>
+            <button onclick="calcular('4')">4</button>
+            <button onclick="calcular('5')">5</button>
+            <button onclick="calcular('6')">6</button>
+            <button onclick="calcular('*')">*</button>
+            <button onclick="calcular('1')">1</button>
+            <button onclick="calcular('2')">2</button>
+            <button onclick="calcular('3')">3</button>
+            <button onclick="calcular('-')">-</button>
+            <button onclick="calcular('0')">0</button>
+            <button onclick="calcular('.')">.</button>
+            <button onclick="calcular('=')">=</button>
+            <button onclick="calcular('+')">+</button>
         </div>
     </div>
 </body>
