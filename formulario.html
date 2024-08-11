@@ -7,41 +7,56 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex justify-center font-sans text-lg">
-    <form action="" class="w-1/2 flex flex-col justify-start items-center gap-10 p-5 mt-5 bg-[#7A0BC0] text-white">
+    <form class="w-1/2 flex flex-col justify-start items-start gap-5 mt-5 py-10 pl-16 bg-[#7A0BC0] text-white">
         <h1 class="font-bold text-2xl">Formulario</h1>
-        <div class="flex flex-col justify-start items-center">
+        <div class="flex flex-col justify-start items-start">
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" placeholder="Luis Lezama" id="nombre" class="text-black">
-            <p id="nombre_valido"></p>
+            <div class="flex">
+                <input type="text" name="nombre" placeholder="Luis" id="nombre" class="text-black pl-2 py-1 rounded">
+                <span id="nombre_valido"></span>
+            </div>
         </div>
-        <div class="flex flex-col justify-start items-center">
+        <div class="flex flex-col justify-start items-start">
             <label for="email">Correo</label>
-            <input type="email" name="email" placeholder="isbeautiful@cosmeticos.com" id="correo" class="text-black">
-            <p></p>
+            <div class="flex">
+                <input type="email" name="email" placeholder="beauty@cosmeticos.com" id="correo" class="text-black pl-2 py-1 rounded">
+                <span id="correo_valido"></span>
+            </div>
         </div>
-        <div class="flex flex-col justify-start items-center">
+        <div class="flex flex-col justify-start items-start">
             <label for="telefono">Telefono</label>
-            <input type="text" name="telefono" placeholder="+584161234567" id="telefono" class="text-black">
-            <p id="telefono_valido"></p>
+            <div class="flex">
+                <input type="text" name="telefono" placeholder="+58 4161234567" id="telefono" class="text-black pl-2 py-1 rounded">
+                <span id="telefono_valido"></span>
+            </div>
         </div>
-        <div class="flex flex-col justify-start items-center">
+        <div class="flex flex-col justify-start items-start">
             <label for="contrasena">Contraseña</label>
-            <input type="password" name="contrasena" id="contrasena" class="text-black">
-            <p></p>
+            <p class="text-sm">Debe tener mínimo 8 caracteres, letras, números y $ % # / *</p>
+            <div class="flex">
+                <input type="password" name="contrasena" id="contrasena" class="text-black pl-2 py-1 rounded">
+                <button onclick="ver()">👀</button>
+                <span id="contrasena_valida"></span>
+            </div>
         </div>
-        <div class="flex flex-col justify-start items-center">
+        <div class="flex flex-col justify-start items-start">
             <label for="confirmar">Confirmar contraseña</label>
-            <input type="password" name="confirmar" id="confirmar" class="text-black">
-            <p></p>
+            <div class="flex">
+                <input type="password" name="confirmar" id="confirmar" class="text-black pl-2 py-1 rounded">
+                <button onclick="ver()">👀</button>
+                <span id="confirmar_valida"></span>
+            </div>
         </div>
-        <div class="flex flex-col justify-start items-center">
+        <div class="flex flex-col justify-start items-start">
             <label for="pasaporte">Pasaporte</label>
-            <input type="file" name="pasaporte" id="pasaporte">
-            <p></p>
+            <div class="flex">
+                <input type="text" name="pasaporte" id="pasaporte" class="text-black pl-2 py-1 rounded">
+                <span id="pasaporte_valido"></span>
+            </div>
         </div>
         <div>
-            <input type="submit" onclick="validar()">
-        <p id="valido"></p>
+            <input type="submit" class="bg-white text-[#7A0BC0] px-2 py-1 rounded-md">
+            <p id="valido"></p>
         </div>
     </form>
 </body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[url(./love-4089493_1280.jpg)] bg-cover bg-no-repeat">
+    <div class="flex-col w-4/5 mx-auto bg-gray-500 rounded p-5 mt-5">
+        <h1 class="text-center text-xl mb-5">TO DO list</h1>
+        <div class="h-20">
+            <div class="flex justify-between w-1/2 mx-auto">
+                <input class="p-2 w-[90%] rounded-l-lg" type="text" placeholder="Escribe aquí tu tarea" id="tarea">
+                <button class="p-2 bg-white rounded-r-lg" id="agregar-tarea">➕</button>
+            </div>
+            <p id="p"></p>
+        </div>
+        <div>
+            <ul id="lista-tareas">
+                <p id="no-pendientes">No tienes tareas pendientes</p>
+            </ul>
+            <button id="eliminar-lista" class="block mx-auto mt-5 bg-white px-2 py-1 rounded-md">Limpiar</button>
+        </div>
+    </div>
+</body>
+<script src="./list.js"></script>
+</html>
