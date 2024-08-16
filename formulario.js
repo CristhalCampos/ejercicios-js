@@ -23,8 +23,8 @@ Crea un formulario de registro que pida:
 function validarNombre() {
   let nombre = document.getElementById('nombre').value;
   let nombre_valido = document.getElementById('nombre_valido');
-  nombre_valido.innerHTML = /^[A-Za-z]{2,}$/.test(nombre) ? '✔' : '❌';
-  nombre_valido.className = /^[A-Za-z]{2,}$/.test(nombre) ? 'valid' : 'invalid';
+  nombre_valido.innerHTML = /^[A-Za-z ]{2,}$/.test(nombre) ? '✔' : '❌';
+  nombre_valido.className = /^[A-Za-z ]{2,}$/.test(nombre) ? 'valid' : 'invalid';
 }
 
 function validarCorreo() {
@@ -88,6 +88,7 @@ document.getElementById('telefono').addEventListener('input', validarTelefono);
 document.getElementById('contrasena').addEventListener('input', validarContrasena);
 document.getElementById('confirmar').addEventListener('input', validarConfirmar);
 document.getElementById('pasaporte').addEventListener('input', validarPasaporte);
+
 function ver() {
   let cambio = true;
   if (cambio) {
